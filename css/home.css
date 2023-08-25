@@ -44,6 +44,14 @@ body{
     color:white;
 }
 
+.navbarMain ul li:hover a{
+    transition: color 200ms linear;
+}
+
+.navbarMain ul li:hover a{
+    color: #D1F91F;
+}
+
 .navbarMain ul li,
 .navbarMain ul li a {
     text-decoration: none;
@@ -95,6 +103,10 @@ header{
 
 .contentHeader h1 span{
     color: #D1F91F;
+}
+
+.meteor{
+    display: none;
 }
 
 .contentHeader p{
@@ -222,6 +234,26 @@ header{
     text-align: center;
 }
 
+.leftToRight{
+    position: relative;
+    animation: leftToRightAnimation 500ms linear forwards;
+}
+
+@keyframes leftToRightAnimation {
+    0%{
+        opacity: 0;
+        left: -800px;
+    }
+    50%{
+        opacity: 0.5;
+        left: -300px;
+    }
+    100%{
+        opacity: 1;
+        left: 0;
+    }
+}
+
 
 @media screen and (min-width: 768px) {
     header,
@@ -235,6 +267,21 @@ header{
         margin-bottom: 150px;
     }
 
+    .meteor{
+        display: block;
+        position: absolute;
+        z-index: 200;
+        right: 20px;
+        top: -100px;
+        transform: rotate(5deg);
+        animation: blinkAnimation 5s ease infinite;
+    }
+
+    header .meteor.meteor2{
+        right: 80px;
+        top: -140px;
+    }
+
     .illustrationHeader{
         width: 80%;
         margin: 0;
@@ -243,6 +290,7 @@ header{
 
     .circleHeader{
         display: block;
+        animation:rotatePlanet 5s linear infinite ;
     }
 
     .navbarMain{
@@ -266,6 +314,32 @@ header{
     .card{
         width: 250px;
     }
+
+    header .meteor.meteor2{
+        right: 80px;
+        top: -100px;
+    }
+
+    @keyframes rotatePlanet{
+        from {
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes blinkAnimation {
+        0%{
+            opacity: 1;
+        }
+        50%{
+            opacity: 0.5;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -277,8 +351,17 @@ header{
         padding: 0 30px;
     }
 
+    .circleHeader{
+        top: -80px;
+        left: -100px;
+    }
+
     .navbarMain ul{
         justify-self: end;
+    }
+
+    .titleSection{
+        font-size: 35px;
     }
    
 }
